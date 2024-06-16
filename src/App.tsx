@@ -33,6 +33,7 @@ export default function App() {
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         />
       </GridItem>
+
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList

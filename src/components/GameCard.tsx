@@ -4,13 +4,21 @@ import PlatformIconList from './PlatformIconList';
 import CriticScore from './CriticScore';
 import getCroppedImageUrl from '../services/image-url';
 import Emoji from './Emoji';
+import { Link } from 'react-router-dom';
 
 interface Props {
   game: Game;
 }
 
 export default function GameCard({
-  game: { background_image, name, parent_platforms, metacritic, rating_top },
+  game: {
+    background_image,
+    name,
+    parent_platforms,
+    metacritic,
+    rating_top,
+    slug,
+  },
 }: Props) {
   return (
     <Card>
@@ -23,7 +31,7 @@ export default function GameCard({
           <CriticScore score={metacritic} />
         </HStack>
         <Heading fontSize="2xl">
-          {name.substring(0, 17)}
+          <Link to={`/games/${slug}`}>{name.substring(0, 17)}</Link>
           <Emoji rating={rating_top} />
         </Heading>
       </CardBody>
